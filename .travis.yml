@@ -1,0 +1,25 @@
+---
+services: docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.14.0
+
+before_install:
+  # Upgrade Docker Compose.
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  # Upgrade Docker.
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+
+script:
+  # Test building Dockerfile.
+  - docker build -t docker-ansible .
+
+  # Test running the container.
+  - docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible /lib/systemd/systemd
+
+  # Verify Ansible is available in the container.
+  - docker exec --tty test-container env TERM=xterm ansible --version
