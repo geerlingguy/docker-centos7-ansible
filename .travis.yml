@@ -23,3 +23,6 @@ script:
 
   # Verify Ansible is available in the container.
   - docker exec --tty test-container env TERM=xterm ansible --version
+
+  # Verify Git is available in the container.
+  - docker exec --tty test-container env TERM=xterm git --version
