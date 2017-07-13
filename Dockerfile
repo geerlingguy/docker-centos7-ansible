@@ -22,6 +22,9 @@ RUN yum makecache fast \
       sudo \
       which \
       git \
+      selinux-policy \
+      libselinux-python \
+      policycoreutils-python \
  && yum clean all
 
 # Disable requiretty.
