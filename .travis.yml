@@ -19,7 +19,8 @@ script:
   - docker build -t docker-ansible .
 
   # Test running the container.
-  - docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible /usr/lib/systemd/systemd
+  - docker run -n container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible /usr/lib/systemd/systemd
+  - docker run -n container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible which ansible
 
   # Verify Ansible is available in the container.
   - docker exec --tty test-container env TERM=xterm ansible --version
