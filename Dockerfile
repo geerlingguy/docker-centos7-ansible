@@ -2,7 +2,7 @@ FROM centos:7
 LABEL maintainer="Jeff Geerling"
 ENV container=docker
 
-ENV pip_packages "ansible yamllint ansible-lint flake8 testinfra molecule"
+ENV pip_packages "ansible"
 
 # Install systemd -- See https://hub.docker.com/_/centos/
 RUN yum -y update; yum clean all; \
