@@ -41,7 +41,7 @@ This image is built on Docker Hub automatically any time the upstream OS contain
       docker exec --tty [container_id] env TERM=xterm ansible-playbook /path/to/ansible/playbook.yml --syntax-check`
 
       # Enter a shell in the container.
-      docker exec --tty [container_id] env TERM=xterm bash
+      docker exec --tty -i [container_id] env TERM=xterm bash
 
       ```
 
