@@ -6,14 +6,9 @@ CentOS 7 Docker container for Ansible playbook and role testing.
 
 ## Tags
 
-  - `latest`: Latest stable version of Ansible.
-  - `python2`: Latest stable version of Ansible, but on Python 2.x.
-  - `testing`: Same as `latest`, but with additional testing dependencies, including:
-    - `yamllint`
-    - `ansible-lint`
-    - `flake8`
-    - `testinfra`
-    - `molecule`
+  - `latest`: Latest stable version of Ansible, on Python 2.7.x.
+  - `python2`: (Deprecated) Same as `latest`, as of early 2020.
+  - `python3`: Latest stable version of Ansible, but on Python 3.6.x.
 
 The latest tag is a lightweight image for basic validation of Ansible playbooks. The `testing` tag also includes a comprehensive suite of Ansible and infrastructure testing tools in case you want them pre-installed.
 
