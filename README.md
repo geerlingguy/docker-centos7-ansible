@@ -33,6 +33,8 @@ This image is built on Docker Hub automatically any time the upstream OS contain
 
 ## Notes
 
+fgierlinger: This is a clone of geerlingguy/docker-centos7-ansible, to build the image on a weekly schedule. As soon as https://github.com/geerlingguy/docker-centos7-ansible/pull/14 is merged, this repository will be deleted.
+
 I use Docker to test my Ansible roles and playbooks on multiple OSes using CI tools like Jenkins and Travis. This container allows me to test roles and playbooks using Ansible running locally inside the container.
 
 > **Important Note**: I use this image for testing in an isolated environment—not for production—and the settings and configuration used may not be suitable for a secure and performant production environment. Use on production servers/in the wild at your own risk!
