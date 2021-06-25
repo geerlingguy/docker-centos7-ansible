@@ -25,6 +25,9 @@ RUN yum makecache fast \
       python-pip \
  && yum clean all
 
+# Upgrade Pip so cryptography package works.
+RUN python -m pip install --upgrade pip
+
 # Install Ansible via Pip.
 RUN pip install $pip_packages
 
